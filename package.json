@@ -1,0 +1,14 @@
+{
+  "name": "@winfoord/license-check",
+  "version": "1.0.0",
+  "description": "Private license check for AliLinejad projects",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "private": false,
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}
