@@ -1,17 +1,26 @@
 {
   "name": "gameford-license-check",
-  "version": "1.0.2",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "version": "1.0.5",
+  "types": "dist/index.d.ts",  
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc && npm run obfuscate",
-    "obfuscate": "javascript-obfuscator dist/index.js --output dist/index.js --compact true --self-defending true --string-array true"
+    "build:cjs": "tsc --outDir dist/cjs --module commonjs",
+    "build:esm": "tsc --outDir dist/esm --module esnext",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build": "npm run build:cjs && npm run build:esm && npm run build:types",
+    "obfuscate": "javascript-obfuscator dist/cjs/index.js --output dist/cjs/index.js --compact true --self-defending true --string-array true"
   },
   "devDependencies": {
     "javascript-obfuscator": "^4.1.1",
     "typescript": "^5.9.3"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js",
+      "types": "./dist/index.d.ts"
+    }
   }
 }
