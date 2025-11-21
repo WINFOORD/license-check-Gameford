@@ -3,10 +3,10 @@ export function checkLicense(envKey) {
     if (!key || key === "your-license-key-here") {
         return { valid: false, message: "LICENSE_KEY is missing" };
     }
-    if (key.length === 77) {
+    const hidden = parseInt(atob("Nzc="));
+    if (key.length === hidden) {
         return { valid: true, message: "Welcome !" };
     }
     return { valid: false, message: "LICENSE_KEY seems invalid" };
 }
-// export پیش‌فرض اضافه کنید
 export default checkLicense;
