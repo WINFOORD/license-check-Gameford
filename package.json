@@ -1,14 +1,17 @@
 {
-  "name": "@winfoord/license-check",
-  "version": "1.0.0",
-  "description": "Private license check for AliLinejad projects",
+  "name": "gameford-license-check",
+  "version": "1.0.2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc && npm run obfuscate",
+    "obfuscate": "javascript-obfuscator dist/index.js --output dist/index.js --compact true --self-defending true --string-array true"
   },
-  "private": false,
   "devDependencies": {
+    "javascript-obfuscator": "^4.1.1",
     "typescript": "^5.9.3"
   }
 }

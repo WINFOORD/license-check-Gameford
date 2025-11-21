@@ -1,8 +1,5 @@
-dist/
-
 src/
-
-tsconfig.json
-
+*.ts
 .env
 node_modules/
+tsconfig.json
